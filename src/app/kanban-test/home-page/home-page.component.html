@@ -1,0 +1,84 @@
+<main>
+  <img style="width: 50%; padding: 1rem" src="assets/SwingingDoodle.svg">
+  <div class="mat-display-3">work and life balance</div>
+  <div class="mat-display-1">a powerful tool to help you clear your mind, and achieve your goals.</div>
+  
+  <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/OWy0e231eMI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+ 
+  <app-boards-list></app-boards-list>
+
+  <section>
+    <h1>Subscribe</h1>
+    <h3>to save and edit your own kanban</h3>
+    <a mat-raised-button color="accent" style="margin-right: 10px" routerLink="/profile">subscribe</a>
+  </section>
+
+  
+  <mat-tab-group style="background-color:#F9F5F1" mat-align-tabs="center">
+    <mat-tab selectedIndex label="☁️ achieve dreams">
+      <mat-card>
+        <img style="width: 50%; padding: 1rem" src="assets/feature01.png">
+      </mat-card>
+    </mat-tab>
+    <mat-tab label="🎭 know yourself">
+      <mat-card>
+        <img style="width: 50%; padding: 1rem" src="assets/feature02.png">
+      </mat-card>
+    </mat-tab>
+    <mat-tab label="✊ get things done">
+      <mat-card>
+        <img style="width: 50%; padding: 1rem" src="assets/feature03.png">
+      </mat-card>
+    </mat-tab>
+  </mat-tab-group>
+
+  <section>
+    <h1>AS FEATURED ON</h1>
+    <img class="featured" src="assets/featured.png">
+  </section>
+
+  <mat-divider></mat-divider>
+
+  <section>
+    <div class="mat-display-1">nentei · 拈提</div>
+    <p>–– to meditate upon a koan</p>
+
+    <div class="grid">
+      <mat-card routerLink="/kanban">
+        <img src="assets/UnboxingDoodle.svg">
+        <mat-card-header>
+          <mat-card-title>kanban</mat-card-title>
+          <mat-card-subtitle>track your thoughts and keep your mind focused on actions</mat-card-subtitle>
+        </mat-card-header>
+      </mat-card>
+      <mat-card routerLink="/know">
+        <img src="assets/ReadingDoodle.svg">
+        <mat-card-header>
+          <mat-card-title>know</mat-card-title>
+          <mat-card-subtitle>learn the minimalist guide to fullfilment with easy rules</mat-card-subtitle>
+        </mat-card-header>
+      </mat-card>
+      <mat-card routerLink="/koan">
+        <img src="assets/PlantDoodle.svg">
+        <mat-card-header>
+          <mat-card-title>koan</mat-card-title>
+          <mat-card-subtitle>empty your mind arround a question and find the answer</mat-card-subtitle>
+        </mat-card-header>
+      </mat-card>
+      <mat-card routerLink="/meditate">
+        <img src="assets/MeditatingDoodle.svg">
+        <mat-card-header>
+          <mat-card-title>meditate</mat-card-title>
+          <mat-card-subtitle>calm the mind to get back on focus at the present moment</mat-card-subtitle>
+        </mat-card-header>
+      </mat-card>
+    </div>  
+  </section>
+
+  <section class="wave">
+    <div class="mat-display-1" style="text-align: left">SHOP</div>
+    <div class="mat-headline" style="text-align: left">just get the best products to help you calm the mind and live a productive life.</div>
+    <a mat-raised-button color="accent" style="margin-right: 10px;" href="https://nentei.etsy.com/" target="blank">shop</a>
+  </section>
+
+</main>

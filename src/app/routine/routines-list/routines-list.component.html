@@ -1,0 +1,29 @@
+<section style="text-align: center" *ngIf="(currentUser$ | async) && !(doesNotHaveSubs$ | async)">
+  <button mat-raised-button color="accent"  routerLink="/profile">subscribe to edit</button>
+</section>
+
+<!-- <div *ngIf="doesNotHaveSubs$ | async"> -->
+
+  <div
+    cdkDropList
+    class="routines grid"
+    cdkDropListOrientation="horizontal"
+    (cdkDropListDropped)="drop($event)"
+  >
+    <app-routine cdkDrag *ngFor="let routine of routines" [routine]="routine">
+      <mat-icon cdkDragHandle class="handle">drag_indicator</mat-icon>
+    </app-routine>
+
+    <div class="routine-button">
+      <button
+        mat-raised-button
+        color="accent"
+        cdkDragDisabled
+        (click)="openRoutineDialog()"
+      >
+        New Routine
+      </button>
+    </div>
+  </div>
+
+<!-- </div> -->

@@ -1,0 +1,29 @@
+<section style="text-align: center" *ngIf="(currentUser$ | async) && !(doesNotHaveSubs$ | async)">
+  <button mat-raised-button color="accent"  routerLink="/profile">subscribe to edit</button>
+</section>
+
+<div *ngIf="doesNotHaveSubs$ | async">
+
+  <div
+    cdkDropList
+    class="boards grid"
+    cdkDropListOrientation="horizontal"
+    (cdkDropListDropped)="drop($event)"
+  >
+    <app-board cdkDrag *ngFor="let board of boards" [board]="board">
+      <mat-icon cdkDragHandle class="handle">drag_indicator</mat-icon>
+    </app-board>
+
+    <div class="board-button">
+      <button
+        mat-raised-button
+        color="accent"
+        cdkDragDisabled
+        (click)="openBoardDialog()"
+      >
+        New Board
+      </button>
+    </div>
+  </div>
+
+</div>

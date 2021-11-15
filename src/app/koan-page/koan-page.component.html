@@ -1,0 +1,16 @@
+<header>
+  <img style="width: 50%" src="./../../assets/PlantDoodle.svg">
+  <div class="mat-display-2">koans</div>
+  <div class="mat-headline">empty your mind, and the answer will pop</div>
+</header>
+
+<div class="grid">
+  <mat-card class="grid-item-anim card-hero" *ngFor="let koan of koanObservable | async">
+    <div class="card-hero-div">
+      <img mat-card-image class="card-hero-img" [src]="koan.image">
+      <div class="card-hero-text">
+        <mat-card-title><p>{{ koan.text }}</p></mat-card-title>
+      </div>  
+    </div>
+  </mat-card>
+<div>

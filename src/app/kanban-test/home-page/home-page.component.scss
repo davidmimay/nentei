@@ -1,0 +1,43 @@
+main {
+  text-align: center;
+}
+
+.featured {
+  width: 100%;
+}
+
+.grid {
+  margin: 1rem;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  .grid-item-anim {
+    transition: transform 500ms ease;
+    &:hover {
+      transform: translateY(-3px);
+    }
+  }
+}
+mat-card {
+  border-radius: 1rem;
+  box-shadow: 0 2px 1px -1px rgb(0 0 0 / 20%), 0 1px 1px 0 rgb(0 0 0 / 14%), 0 1px 3px 0 rgb(0 0 0 / 12%);
+  overflow: hidden;
+  padding: 0;
+
+  transition: transform 300ms ease;
+  &:hover {
+    transform: translateY(-3px);
+  }
+}
+
+mat-tab-group {
+  mat-card {
+    margin: 3em;
+  }
+}
+
+.wave {
+  background-color: gainsboro;
+  opacity: 0.8;
+  background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, gainsboro 40px ), repeating-linear-gradient( #b4b4b455, #b4b4b4 );
+}

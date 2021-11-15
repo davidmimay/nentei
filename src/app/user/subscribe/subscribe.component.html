@@ -1,0 +1,27 @@
+<mat-card>
+  <div *ngIf="(currentUser$ | async) && !(doesNotHaveSubs$ | async)">
+    <mat-card-header>
+      <mat-card-title>Subscribe</mat-card-title>
+      <mat-card-subtitle>The first step to calm your mind and achieve your goals</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-actions>
+      <p>💪 edit kanban</p>
+      <p>✨ shop discounts</p>
+      <p><a mat-raised-button color="accent" (click)="sendToCheckout()">join (2€ / month)</a></p>
+      <mat-spinner *ngIf="isloading" color="accent" style="margin: 1em auto"></mat-spinner>
+    </mat-card-actions>
+  </div>
+
+  <div *ngIf="doesNotHaveSubs$ | async">
+    <mat-card-header>
+      <mat-card-title>Subscribed</mat-card-title>
+      <mat-card-subtitle>Stay calm, and achieve your goals</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-actions>
+      <p><a mat-raised-button color="basic" routerLink="/kanban">💪 edit kanban</a></p>
+      <p><a mat-raised-button color="basic" href="https://www.etsy.com/shop/nentei?coupon=NAMASTE" target="_blank">✨ shop discounts</a></p>
+      <p><a mat-raised-button color="accent" (click)="sendToCustomerPortal()">edit subscription</a><p>
+      <mat-spinner *ngIf="isloading" color="accent" style="margin: 1em auto"></mat-spinner>
+    </mat-card-actions>
+  </div>
+</mat-card>

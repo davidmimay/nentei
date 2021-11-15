@@ -1,0 +1,18 @@
+<header>
+  <img style="width: 50%" src="assets/MeditatingDoodle.svg">
+  <div class="mat-display-2">meditate</div>
+  <div class="mat-headline">calming videos to find peace.</div>
+</header>
+
+<div class="grid" *ngIf="videos.length > 0">
+    <mat-card *ngFor="let video of videos">
+        <!--<img [src]="video.thumbnails.high.url" [alt]="video.title">-->
+        <!--<h5 class="card-title">{{ video.title }}</h5>-->
+        <!--         <youtube-player [videoId]="video.resourceId.videoId" suggestedQuality="highres" height="800" width="450"></youtube-player> -->
+          <youtube-player [videoId]="video.resourceId.videoId" width="100%"></youtube-player>
+    </mat-card>
+</div>  
+
+<footer>
+  <a mat-raised-button color="accent" (click)="loadMore()">more videos</a>
+</footer>

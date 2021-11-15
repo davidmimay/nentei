@@ -1,0 +1,72 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="false">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+     
+      <!-- <a mat-list-item routerLink="/" (click)="drawer.close()">home</a> -->
+      <a mat-list-item routerLink="/kanban" (click)="drawer.close()">🙌 kanban</a>
+      <!-- <a mat-list-item routerLink="/routine" (click)="drawer.close()">💪 routine</a> -->
+      <a mat-list-item routerLink="/know" (click)="drawer.close()">👁 know</a>
+      <a mat-list-item routerLink="/koan" (click)="drawer.close()">🤯 koan</a>
+      <a mat-list-item routerLink="/meditate" (click)="drawer.close()">😌 meditate</a>
+      <a mat-list-item href="https://nentei.etsy.com/" target="_blank">✨ shop</a>
+      <a mat-list-item routerLink="/profile" (click)="drawer.close()">🔑 profile</a>
+
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar>
+      <button 
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+
+
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span class="logo" routerLink="/">😌 nentei</span>
+
+      <span class="fill-space"></span>
+      <div *ngIf="!(isHandset$ | async)">
+        <a mat-button routerLink="/kanban">🙌 kanban</a>
+        <!-- <a mat-button routerLink="/routine">💪 routine</a> -->
+        <a mat-button routerLink="/know">👁 know</a>
+        <a mat-list-item routerLink="/koan" (click)="drawer.close()">🤯 koan</a>
+        <a mat-list-item routerLink="/meditate" (click)="drawer.close()">😌 meditate</a>
+        <a mat-button routerLink="/profile" *ngIf="!(afAuth.authState | async)">🔑 Login</a>
+        <a mat-button routerLink="/profile" *ngIf="afAuth.authState | async as user" >
+          <img class="avatar" [src]="user.photoURL || 'assets/UserDoodle.svg'">
+          Profile
+        </a>
+
+      </div>
+
+      <!--
+      <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      
+      <mat-menu #menu="matMenu">
+
+        <a mat-menu-item href="">
+          <i>💾</i>
+          <span>Code on Github</span>
+        </a>
+
+        <a mat-menu-item href="">
+          <i>📺</i>
+          <span>Watch on the YouTube</span>
+        </a>
+      </mat-menu>
+      -->
+    </mat-toolbar>
+
+    <ng-content></ng-content>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
