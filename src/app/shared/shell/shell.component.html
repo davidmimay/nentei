@@ -35,9 +35,9 @@
       <div *ngIf="!(isHandset$ | async)">
         <a mat-button routerLink="/kanban">🙌 kanban</a>
         <!-- <a mat-button routerLink="/routine">💪 routine</a> -->
-        <a mat-button routerLink="/know">👁 know</a>
-        <a mat-list-item routerLink="/koan" (click)="drawer.close()">🤯 koan</a>
-        <a mat-list-item routerLink="/meditate" (click)="drawer.close()">😌 meditate</a>
+        <a mat-button routerLink="/know" (click)="drawer.close()">👁 know</a>
+        <a mat-button routerLink="/koan" (click)="drawer.close()">🤯 koan</a>
+        <a mat-button routerLink="/meditate" (click)="drawer.close()">😌 meditate</a>
         <a mat-button routerLink="/profile" *ngIf="!(afAuth.authState | async)">🔑 Login</a>
         <a mat-button routerLink="/profile" *ngIf="afAuth.authState | async as user" >
           <img class="avatar" [src]="user.photoURL || 'assets/UserDoodle.svg'">
