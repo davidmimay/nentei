@@ -11,6 +11,7 @@ environment.ts
 .env
 .environment.prod.ts
 .environment.ts
+/e2e
 
 # compiled output
 /dist
