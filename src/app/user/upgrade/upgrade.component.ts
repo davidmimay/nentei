@@ -173,7 +173,7 @@ export class UpgradeComponent {
     this.isloading = true // Spinner
     const functionRef = this.afFunctions
       .httpsCallable('ext-firestore-stripe-subscriptions-createPortalLink');
-    await functionRef({ returnUrl: window.location.origin })
+    await functionRef({ returnUrl: window.location.href }) // 'href' to return to same page
       .pipe()
       .subscribe(data => {
         window.location.assign(data.url);
