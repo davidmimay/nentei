@@ -12,10 +12,15 @@ import { map } from 'rxjs/operators';
 export class YoutubeService {
 
   private youtubeUrl:string = "https://www.googleapis.com/youtube/v3";
+  
+  private apikey:string = '';
+  private playlist:string = '';
+  private nextpage:string = '';
+  /*
   private apikey:string = environment.youtube.apikey;
   private playlist:string = environment.youtube.playlist;
   private nextpage:string = environment.youtube.nextpage;
-
+  */
   constructor(public http:HttpClient) {}
   
   getVideos() {

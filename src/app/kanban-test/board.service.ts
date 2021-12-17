@@ -32,7 +32,7 @@ export class BoardService {
         if (user) {
           return this.db
             .collection<Board>('boards', ref =>
-              ref.where('uid', '==', environment.test_user_uid).orderBy('priority')
+              ref.where('uid', '==', '').orderBy('priority')
             )
             .valueChanges({ idField: 'id' });
         } else {

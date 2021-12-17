@@ -69,7 +69,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "flowobility:build"
+            "browserTarget": "flowobility:build",
+            "disableHostCheck": true
           },
           "configurations": {
             "production": {

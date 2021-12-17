@@ -1,0 +1,6 @@
+tasks:
+  - name: Angular cli + Firebase cli
+    command: npm install -g @angular/cli && firebase-tools
+  - name: Starting
+    init: npm install && npm run build
+    command: npm run start

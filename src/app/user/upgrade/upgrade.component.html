@@ -1,0 +1,29 @@
+<div *ngIf="(currentUser$ | async) && !(doesNotHaveSubs$ | async)">
+    <mat-card *ngFor="let item of products">
+      <mat-card-header>
+        <mat-card-title>{{item.name}}</mat-card-title>
+        <mat-card-subtitle style="white-space: pre-line">{{item.description}}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src={{item.image}} alt="Photo of a Shiba Inu">
+      <mat-card-actions>
+        <a mat-raised-button color="accent" (click)="subscribe(item.priceId)">{{ item.price }} {{item.currency | uppercase}}/{{ item.interval }}</a>
+        <mat-spinner *ngIf="isloading" color="accent" class="spinner"></mat-spinner>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+  
+  <div *ngIf="doesNotHaveSubs$ | async">
+    <mat-card>
+      <mat-card-header>
+        <mat-icon mat-card-avatar>{{userId.active === true ? 'check_circle' : 'highlight_off'}}</mat-icon>
+        <mat-card-title>{{userId.name}}</mat-card-title>      
+        <mat-card-subtitle>{{userId.description}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-actions>
+        <p>You are paying: {{ userId.price }} {{userId.currency | uppercase}}/{{ userId.interval }}</p>
+        <p>Next payment will be on: {{userId.nextPayment | date}}</p>
+        <a mat-raised-button color="accent" (click)="accessCustomerPortal()">edit subscription</a>
+        <mat-spinner *ngIf="isloading" color="accent" class="spinner"></mat-spinner>
+      </mat-card-actions>
+    </mat-card>
+  </div>

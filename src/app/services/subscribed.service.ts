@@ -34,7 +34,7 @@ export class SubscribedService {
             // In this implementation we only expect one active or trialing subscription to exist.
             // If we get anything back, it means this user has a subscription.
             const doc = snapshot.docs[0];
-            console.log(doc.id, ' => ', doc.data()); // console log subscription info if you want to do anything with it
+            // console.log(doc.id, ' => ', doc.data()); // console log subscription info if you want to do anything with it
             resolve(true);
           });
       });
