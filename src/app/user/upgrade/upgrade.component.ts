@@ -72,7 +72,7 @@ export class UpgradeComponent {
 
   // ✅ SUBSCRIBE
   public async subscribe(price: string) {
-    // const modalRef = this.modalService.open(WaitDialogComponent);
+    this.isloading = true // Spinner
     const selectedPrice = [{
       price,
       quantity: 1
@@ -170,6 +170,7 @@ export class UpgradeComponent {
 
   // ✅ CUSTOMER PORTAL  
   async accessCustomerPortal() {
+    this.isloading = true // Spinner
     const functionRef = this.afFunctions
       .httpsCallable('ext-firestore-stripe-subscriptions-createPortalLink');
     await functionRef({ returnUrl: window.location.origin })
