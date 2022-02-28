@@ -1,6 +1,15 @@
 tasks:
-  - name: Angular cli + Firebase cli
-    command: npm install -g @angular/cli && firebase-tools
-  - name: Starting
-    init: npm install && npm run build
-    command: npm run start
+  - name: START 
+    before: |
+      echo "✅ BEFORE | PREBUILT & WORKSPACE: Define node version, install angular and firebase"
+      nvm install 12.20.2
+      nvm alias default 12.20.2
+      npx @angular/cli analytics off
+      npm install -g @angular/cli
+      npm install -g firebase-tools
+    init: |
+      echo "✅ INIT | PREBUILT: Installing dependencies…"
+      npm install
+    command: |
+      echo "✅ COMMAND | WORKSPACE: Serve project"
+      npm start
