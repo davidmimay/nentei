@@ -22,6 +22,10 @@ const routes: Routes = [
     loadChildren: () => import('./routine/routine.module').then(m => m.RoutineModule),
     // canActivate: [AuthGuard]
   },
+  {
+    path: 'blog',
+    loadChildren: () => import('./blog/blog.module').then(m => m.BlogModule),
+  },
   { path: 'know', component: KnowPageComponent },
   { path: 'meditate', component: CalmPageComponent },
   { path: 'koan', component: KoanPageComponent },

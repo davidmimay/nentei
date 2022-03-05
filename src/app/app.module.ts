@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
 import { UserModule } from './user/user.module';
+import { BlogModule } from './blog/blog.module';
 
 // Firebase imports
 import { AngularFireModule } from '@angular/fire';
@@ -27,7 +28,6 @@ import { KoanPageComponent } from './koan-page/koan-page.component';
     KnowPageComponent,
     CalmPageComponent,
     KoanPageComponent,
-    
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -40,6 +40,7 @@ import { KoanPageComponent } from './koan-page/koan-page.component';
     AngularFireAuthModule,
     AngularFireFunctionsModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    BlogModule,
   ],
   providers: [
     { provide: REGION, useValue: 'us-central1' }, //TO-DO Change to your functions location

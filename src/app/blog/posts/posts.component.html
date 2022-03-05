@@ -1,0 +1,10 @@
+<h1>ALL POSTS</h1>
+
+<div class="post" *ngFor="let post of posts">
+  <mat-card>
+    <mat-card-title >{{post.title}}</mat-card-title>
+    <mat-card-content>
+      <div innerHTML="{{post.content}}"></div>
+    </mat-card-content>
+  </mat-card>
+</div>

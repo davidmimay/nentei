@@ -12,6 +12,12 @@
       <a mat-list-item routerLink="/know" (click)="drawer.close()">👁 know</a>
       <a mat-list-item routerLink="/koan" (click)="drawer.close()">🤯 koan</a>
       <a mat-list-item routerLink="/meditate" (click)="drawer.close()">😌 meditate</a>
+
+      <a mat-list-item routerLink="/blog/page" (click)="drawer.close()">Blog</a>
+      <ng-container *ngFor="let page of pages" (click)="drawer.close()">
+        <a mat-list-item routerLink="blog/page/{{page.id}}">{{page.title}}</a>
+      </ng-container>
+
       <a mat-list-item href="https://nentei.etsy.com/" target="_blank">✨ shop</a>
       <a mat-list-item routerLink="/profile" (click)="drawer.close()">🔑 profile</a>
 
@@ -38,6 +44,12 @@
         <a mat-button routerLink="/know" (click)="drawer.close()">👁 know</a>
         <a mat-button routerLink="/koan" (click)="drawer.close()">🤯 koan</a>
         <a mat-button routerLink="/meditate" (click)="drawer.close()">😌 meditate</a>
+
+        <a mat-button routerLink="/blog/page">Blog</a>
+        <ng-container *ngFor="let page of pages">
+          <a mat-button routerLink="blog/page/{{page.id}}">{{page.title}}</a>
+        </ng-container>
+
         <a mat-button routerLink="/profile" *ngIf="!(afAuth.authState | async)">🔑 Login</a>
         <a mat-button routerLink="/profile" *ngIf="afAuth.authState | async as user" >
           <img class="avatar" [src]="user.photoURL || 'assets/UserDoodle.svg'">
