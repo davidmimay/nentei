@@ -8,7 +8,7 @@ import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
 import { MatDialogModule } from '@angular/material/dialog';
 import { BoardComponent } from './board/board.component';
-import { HomePageComponent } from './home-page/home-page.component';
+import { HomePageComponent } from '../home-page/home-page.component';
 import { FormsModule } from '@angular/forms';
 import { BoardDialogComponent } from './dialogs/board-dialog.component';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';

@@ -22,15 +22,18 @@ export class BoardsListComponent implements OnInit, OnDestroy {
   ngOnInit() {
     
     this.sub = this.boardService
-      .getTestBoards()//.getUserBoards()
+      //.getUserBoards()
+      .getKnowBoards()
       .subscribe(boards => (this.boards = boards));
       
   }
 
+  
   drop(event: CdkDragDrop<string[]>) {
     moveItemInArray(this.boards, event.previousIndex, event.currentIndex);
     this.boardService.sortBoards(this.boards);
   }
+  
 
   openBoardDialog(): void {
     const dialogRef = this.dialog.open(BoardDialogComponent, {

@@ -28,11 +28,11 @@ import { BoardService } from '../board.service';
       </mat-button-toggle-group>
     </div>
     <div mat-dialog-actions>
-      <button mat-button disabled [mat-dialog-close]="data" cdkFocusInitial>
+      <button mat-button [mat-dialog-close]="data" cdkFocusInitial>
         {{ data.isNew ? 'Add Task' : 'Update Task' }}
       </button>
 
-      <button mat-button disabled color="warn">
+      <button mat-button color="warn">
         <mat-icon>delete</mat-icon>
       </button>
     </div>

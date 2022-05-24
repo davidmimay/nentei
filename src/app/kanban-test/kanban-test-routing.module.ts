@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { BoardsListComponent } from './boards-list/boards-list.component';
-import { HomePageComponent } from './home-page/home-page.component';
 
 const routes: Routes = [
-  { path: '', component: HomePageComponent }
+  { path: '', component: BoardsListComponent }
 ];
 
 

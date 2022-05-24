@@ -44,9 +44,11 @@ export class BoardComponent {
     });
   }
 
+  
   handleDelete() {
     this.boardService.deleteBoard(this.board.id);
   }
+  
 
   constructor(private boardService: BoardService, private dialog: MatDialog) {}
 }

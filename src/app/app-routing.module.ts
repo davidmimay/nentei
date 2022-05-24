@@ -4,10 +4,11 @@ import { KnowPageComponent } from './know-page/know-page.component';
 import { CalmPageComponent } from './calm-page/calm-page.component';
 import { KoanPageComponent } from './koan-page/koan-page.component';
 import { AuthGuard } from './user/auth.guard';
+import { HomePageComponent } from './home-page/home-page.component';
 
 const routes: Routes = [
 
-  { path: '', loadChildren: () => import('./kanban-test/kanban-test.module').then(m => m.KanbanTestModule)},
+  { path: '', component: HomePageComponent},
   {
     path: 'profile',
     loadChildren: () => import('./user/user.module').then(m => m.UserModule)
@@ -18,6 +19,11 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
+    path: 'know',
+    loadChildren: () => import('./kanban-test/kanban-test.module').then(m => m.KanbanTestModule),
+    // canActivate: [AuthGuard]
+  },
+  {
     path: 'routine',
     loadChildren: () => import('./routine/routine.module').then(m => m.RoutineModule),
     // canActivate: [AuthGuard]
@@ -26,7 +32,7 @@ const routes: Routes = [
     path: 'blog',
     loadChildren: () => import('./blog/blog.module').then(m => m.BlogModule),
   },
-  { path: 'know', component: KnowPageComponent },
+  { path: 'know2', component: KnowPageComponent },
   { path: 'meditate', component: CalmPageComponent },
   { path: 'koan', component: KoanPageComponent },
 ];

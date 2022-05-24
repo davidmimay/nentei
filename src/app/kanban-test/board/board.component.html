@@ -25,11 +25,11 @@
       <mat-card [ngClass]="task.label"> {{ task.description }} </mat-card>
     </div>
 
-    <button mat-stroked-button disabled (click)="openDialog()">
+    <button mat-stroked-button (click)="openDialog()">
       <mat-icon>add</mat-icon>
     </button>
 
-    <button mat-button disabled color="warn">
+    <button mat-button color="warn">
       <mat-icon>delete</mat-icon>
     </button>
 

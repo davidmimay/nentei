@@ -55,3 +55,34 @@ This project was made from https://fireship.io video lessons and courses. A high
 
 - [Source code](https://github.com/codediodeio/angular-firestarter)
 - [Learn more](https://firestarter.fireship.io/)
+
+## 🔥 Firestore
+### Boards
+
+```
+boards
++ boardId
+++ uid
+++ tasks
++++ 0
++++++ description, label
++++ 1
++++++ description, label
+```
+
+```
+know
++ board1
+++ question
+++ [users]
++++ uid
++++ tasks
+++++ 0
++++++ description, label
+++++ 1
++++++ description, label
+```
+
+## 💻 Developing
+
+🟠  Question boards to know yourself, with dragable lists items.

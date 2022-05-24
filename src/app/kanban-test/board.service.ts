@@ -4,7 +4,6 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import * as firebase from 'firebase/app';
 import { switchMap, map } from 'rxjs/operators';
 import { Board, Task } from './board.model';
-import { environment } from './../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -23,23 +22,32 @@ export class BoardService {
       tasks: [{ description: 'Hello!', label: 'yellow' }]
     });
   }
-  /**
-   * Get all boards owned by test user
-   */
-   getTestBoards() {
+
+  //** Bulk create know boards */
+  async createKnowBoard(data: Board) {
+    const user = await this.afAuth.auth.currentUser;
+    return this.db.collection('boards').add({
+      ...data,
+      uid: user.uid,
+      title: 'what is this',
+      tasks: [{ description: 'Hello!', label: 'yellow' }]
+    });
+  }
+
+
+  //** Get all know boards
+  getKnowBoards() {
     return this.afAuth.authState.pipe(
       switchMap(user => {
         if (user) {
           return this.db
-            .collection<Board>('boards', ref =>
-              ref.where('uid', '==', '').orderBy('priority')
-            )
+            .collection<Board>('know')
             .valueChanges({ idField: 'id' });
         } else {
           return [];
         }
       }),
-      // map(boards => boards.sort((a, b) => a.priority - b.priority))
+      map(boards => boards.sort((a, b) => a.priority - b.priority))
     );
   }
 
@@ -66,6 +74,7 @@ export class BoardService {
   /**
    * Run a batch write to change the priority of each board for sorting
    */
+  
   sortBoards(boards: Board[]) {
     const db = firebase.firestore();
     const batch = db.batch();
@@ -73,24 +82,30 @@ export class BoardService {
     refs.forEach((ref, idx) => batch.update(ref, { priority: idx }));
     batch.commit();
   }
+  
 
   /**
    * Delete board
    */
+  
   deleteBoard(boardId: string) {
     return this.db
       .collection('boards')
       .doc(boardId)
       .delete();
   }
+  
 
   /**
    * Updates the tasks on board
    */
   updateTasks(boardId: string, tasks: Task[]) {
+    const user = this.afAuth.auth.currentUser;
     return this.db
-      .collection('boards')
+      .collection('know')
       .doc(boardId)
+      .collection('users')
+      .doc(user.uid)
       .update({ tasks });
   }
 
